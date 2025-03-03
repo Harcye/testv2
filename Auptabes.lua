@@ -13,7 +13,7 @@ encoding.default = "CP1251"
 u8 = encoding.UTF8
 
 local update_state = false
-local script_vers = 2
+local script_vers = 3
 local script_vers_text = "1.00"
 local update_url = "https://raw.githubusercontent.com/Harcye/testv2/refs/heads/main/uptabe.ini"
 local update_path = getWorkingDirectory() .. "/update.ini"
