@@ -13,7 +13,7 @@ encoding.default = "CP1251"
 u8 = encoding.UTF8
 
 local update_state = false
-local script_vers = 3
+local script_vers = 1
 local script_vers_text = "1.00"
 local update_url = "https://raw.githubusercontent.com/Harcye/testv2/refs/heads/main/uptabe.ini"
 local update_path = getWorkingDirectory() .. "/update.ini"
@@ -43,14 +43,17 @@ function check_for_update()
 end
 
 function download_script()
-    downloadUrlToFile(script_url, script_path, function(id, status)
+    local temp_path = getWorkingDirectory() .. "/Auptabes_tmp.lua"
+    downloadUrlToFile(script_url, temp_path, function(id, status)
         if status == distatus.STATUS_ENDDOWNLOADDATA then
-            sampAddChatMessage("Скрипт успешно обновлен!", -1)
+            os.remove(script_path) -- удаляем старый скрипт
+            os.rename(temp_path, script_path) -- заменяем на новый
+            sampAddChatMessage("Скрипт успешно обновлен! Перезагрузка...", -1)
             thisScript():reload()
         end
     end)
 end
 
 function cmd_update()
-    sampShowDialog(1000, "Автообновление 2.0", "{FFFFFF} Это урок по обновлению\n{FFFF00} Новая версия реально доступна", "Закрыть", "", 0)
+    sampShowDialog(1000, "Автообновление 2.0", "{FFFFFF} Это урок по обновлению\n{FFFF00} Новая версия доступна", "Закрыть", "", 0)
 end
