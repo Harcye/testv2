@@ -13,11 +13,11 @@ encoding.default = "CP1251"
 u8 = encoding.UTF8
 
 local update_state = false
-local script_vers = 1
+local script_vers = 2
 local script_vers_text = "1.00"
-local update_url = "https://raw.githubusercontent.com/thechampguess/scripts/master/update.ini"
+local update_url = "https://raw.githubusercontent.com/Harcye/testv2/refs/heads/main/uptabe.ini"
 local update_path = getWorkingDirectory() .. "/update.ini"
-local script_url = "https://raw.githubusercontent.com/thechampguess/scripts/master/autoupdate.lua"
+local script_url = "https://raw.githubusercontent.com/Harcye/testv2/refs/heads/main/Auptabes.lua"
 local script_path = thisScript().path
 
 function main()
@@ -52,5 +52,5 @@ function download_script()
 end
 
 function cmd_update()
-    sampShowDialog(1000, "Автообновление 2.0", "{FFFFFF} Это урок по обновлению\n{FFFF00} Новая версия  доступна", "Закрыть", "", 0)
+    sampShowDialog(1000, "Автообновление 2.0", "{FFFFFF} Это урок по обновлению\n{FFFF00} Новая версия реально доступна", "Закрыть", "", 0)
 end
